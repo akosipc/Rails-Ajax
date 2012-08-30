@@ -43,7 +43,6 @@ class ArtistsController < ApplicationController
 	end
 
 	def update
-		@artists = Artist.all
 		@artist = Artist.find(params[:id])
 		respond_to do |format|
 			if @artist.update_attributes(params[:artist])
