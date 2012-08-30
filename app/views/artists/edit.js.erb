@@ -1,6 +1,2 @@
 $('#post_form').html('');
 $('#post_form').append("<%= escape_javascript(render 'form') %>");
-$('form input#artist_name').val("<%= @artist.name %>");
-$('form textarea#artist_bio').val("<%= @artist.bio %>");
-$('form').attr('method', 'put');
-$('form').attr('action', "/artists/" + "<%= @artist.id %>");

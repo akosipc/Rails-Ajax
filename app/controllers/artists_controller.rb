@@ -1,4 +1,10 @@
 class ArtistsController < ApplicationController
+	before_filter :load
+
+	def load
+		@artists = Artist.all
+	end
+	
 	def index
 		@artists = Artist.all
 		@artist = Artist.new
@@ -37,12 +43,15 @@ class ArtistsController < ApplicationController
 	end
 
 	def update
+		@artists = Artist.all
 		@artist = Artist.find(params[:id])
-		if @artist.update_attributes(params[:artist])
-			redirect_to artist_path(@artist.id)
-		else
-			render 'edit'
-		end
+		respond_to do |format|
+			if @artist.update_attributes(params[:artist])
+				format.js
+			else
+				render 'edit'
+			end
+		end		
 	end
 
 	def destroy
@@ -53,3 +62,4 @@ class ArtistsController < ApplicationController
 		end
 	end
 end
+
