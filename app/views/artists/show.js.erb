@@ -1,0 +1,3 @@
+$('#post_form > form').slideUp(function(){
+	$('#post_form').html("<%= escape_javascript(render 'showartist', object: @showartist) %>");
+});

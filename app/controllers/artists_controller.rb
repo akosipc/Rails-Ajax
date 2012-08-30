@@ -10,9 +10,12 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
-		@artist = Artist.find(params[:id])
+		@showartist = Artist.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
-
 
 	def edit
 		@artist = Artist.find(params[:id])
@@ -23,7 +26,6 @@ class ArtistsController < ApplicationController
 		respond_to do |format|
 			if @artist.save
 				@artists = Array(Artist.last)
-				format.html { redirect_to artists_url, notice: 'Successfully added'}
 				format.js
 			else
 				render 'new'
