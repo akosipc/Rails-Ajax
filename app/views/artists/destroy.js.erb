@@ -1,1 +1,2 @@
-$('#<%= dom_id(@artist) %>').remove();
+$("#artists").html("");
+$('#artists').html("<%= escape_javascript(render 'artist') %>");

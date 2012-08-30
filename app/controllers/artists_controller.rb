@@ -56,7 +56,9 @@ class ArtistsController < ApplicationController
 	def destroy
 		@artist = Artist.find(params[:id])
 		@artist.destroy
+
 		respond_to do |format|
+			@artists = Artist.all
 			format.js
 		end
 	end
