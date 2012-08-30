@@ -35,6 +35,7 @@ class ArtistsController < ApplicationController
 		respond_to do |format|
 			if @artist.save
 				@artists = Artist.all
+				flash[:notice] = "Successfully created this artist"
 				format.js
 			else
 				render 'new'
@@ -46,6 +47,7 @@ class ArtistsController < ApplicationController
 		@artist = Artist.find(params[:id])
 		respond_to do |format|
 			if @artist.update_attributes(params[:artist])
+				flash[:notice] = "Successfully updated this artist"
 				format.js
 			else
 				render 'edit'
@@ -59,6 +61,7 @@ class ArtistsController < ApplicationController
 
 		respond_to do |format|
 			@artists = Artist.all
+			flash[:notice] = "Successfully deleted this artist"
 			format.js
 		end
 	end
