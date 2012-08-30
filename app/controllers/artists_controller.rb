@@ -19,6 +19,7 @@ class ArtistsController < ApplicationController
 	def show
 		@showartist = Artist.find(params[:id])
 		respond_to do |format|
+			flash[:notice] = "Showing this artist"
 			format.js
 		end
 	end
@@ -26,6 +27,7 @@ class ArtistsController < ApplicationController
 	def edit
 		@artist = Artist.find(params[:id])
 		respond_to do |format|
+			flash[:notice] = "Editing this artist"
 			format.js
 		end
 	end

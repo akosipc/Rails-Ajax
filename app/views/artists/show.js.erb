@@ -1,3 +1,4 @@
+$("#notice").html("<%= escape_javascript(flash[:notice]) %>")
 $('#post_form').slideUp(function(){
 	$('#post_form').html('')
 });
