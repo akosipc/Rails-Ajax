@@ -5,14 +5,14 @@ class ArtistsController < ApplicationController
 
 		respond_to do |format|
 			format.html
-			format.json { render json: @artists }
+			format.json
+			format.js
 		end
 	end
 
 	def show
 		@showartist = Artist.find(params[:id])
 		respond_to do |format|
-			format.html
 			format.js
 		end
 	end
@@ -39,6 +39,14 @@ class ArtistsController < ApplicationController
 			redirect_to artist_path(@artist.id)
 		else
 			render 'edit'
+		end
+	end
+
+	def destroy
+		@artist = Artist.find(params[:id])
+		@artist.destroy
+		respond_to do |format|
+			format.js
 		end
 	end
 end

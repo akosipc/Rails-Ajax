@@ -1,7 +1,7 @@
 %ul#artists
   - @artists.each do |a|
     .seven.columns
-      %li= link_to a.name, artist_path(a.id), :remote => true
+      %li= link_to a.name, a, :remote => true
     .five.columns
-      %span= link_to 'Edit'
-      %span= link_to 'Delete'
+      %span= link_to 'Edit', edit_artist_path(a)
+      %span= link_to 'Delete', a, :confirm => "Are you sure?", :method => :delete, :remote => true
