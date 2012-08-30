@@ -34,7 +34,7 @@ class ArtistsController < ApplicationController
 		@artist = Artist.new(params[:artist])
 		respond_to do |format|
 			if @artist.save
-				@artists = Array(Artist.last)
+				@artists = Artist.all
 				format.js
 			else
 				render 'new'
