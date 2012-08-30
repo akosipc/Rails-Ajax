@@ -3,5 +3,5 @@
     .seven.columns
       %li= link_to a.name, a, :remote => true
     .five.columns
-      %span= link_to 'Edit', edit_artist_path(a)
+      %span= link_to 'Edit', edit_artist_path(a), :remote => true
       %span= link_to 'Delete', a, :confirm => "Are you sure?", :method => :delete, :remote => true
