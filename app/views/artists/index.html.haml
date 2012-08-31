@@ -3,7 +3,6 @@
   .four.columns
     %h3= "Artists"
     = render "artist", object: @artists
+    .text-center= link_to "Add Artist", new_artist_path, :class => "button", :remote => true
   .eight.columns#post_form
     = render "form"
-.row
-  = link_to "Add", new_artist_path, :class => "button", :remote => true

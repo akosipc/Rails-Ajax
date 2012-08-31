@@ -1,3 +1,13 @@
 - if !@showartist.nil?
-  %p= @showartist.name
-  = @showartist.bio
+  .row
+    .twelve.columns
+      %p= @showartist.name
+      %p= @showartist.bio
+      - if @albums.empty?
+        %p= "No Albums for this artist yet"
+      - else
+        - @albums.each do |a|
+          %p= a.name
+      .text-center= link_to "Add Album", new_album_path, :class => "button"
+
+

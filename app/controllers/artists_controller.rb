@@ -26,6 +26,7 @@ class ArtistsController < ApplicationController
 
 	def show
 		@showartist = Artist.find(params[:id])
+		@albums = Album.find(:all, :conditions => ["artist_id = (?)", @showartist.id])
 		respond_to do |format|
 			flash[:notice] = "Showing this artist"
 			format.js
