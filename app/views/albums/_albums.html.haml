@@ -1,0 +1,10 @@
+.row
+  %p= ""
+.row
+  - if @albums.empty?
+    %p.text-center= "No Albums for this artist yet"
+  - else
+    %ul
+    - @albums.each do |a|
+      %li= a.name
+  .text-center= link_to "Add Album", new_artist_album_path(@showartist), :class => "button", :remote => true

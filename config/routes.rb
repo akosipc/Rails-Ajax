@@ -1,8 +1,9 @@
 JsTest2::Application.routes.draw do
   root :to => "pages#index"
 
-  resources :artists
-  resources :albums
+  resources :artists do
+    resources :albums
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
