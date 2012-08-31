@@ -35,6 +35,7 @@ class ArtistsController < ApplicationController
 
 	def show_by_name
 		@artist = Artist.find(:first, :conditions => ['lower(name) = ?', params[:name].gsub('_',' ').downcase])
+		flash[:alert] = "Hey"
 	end
 
 	def edit

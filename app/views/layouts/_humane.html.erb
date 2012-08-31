@@ -1,0 +1,10 @@
+<% if alert != nil %>
+	<script>
+		humane.error("<%= alert %>");
+	</script>
+<% end %>
+<% if notice != nil %>
+	<script>
+		humane.log("<%= notice %>");
+	</script>
+<% end %>
