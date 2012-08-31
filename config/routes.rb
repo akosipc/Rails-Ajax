@@ -4,6 +4,9 @@ JsTest2::Application.routes.draw do
   resources :artists do
     resources :albums
   end
+
+  match "artist/:name" => 'artists#show_by_name', :via => "get"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

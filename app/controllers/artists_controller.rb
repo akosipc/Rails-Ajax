@@ -33,6 +33,10 @@ class ArtistsController < ApplicationController
 		end
 	end
 
+	def show_by_name
+		@artist = Artist.find(:first, :conditions => ['lower(name) = ?', params[:name].gsub('_',' ').downcase])
+	end
+
 	def edit
 		@artist = Artist.find(params[:id])
 		respond_to do |format|
