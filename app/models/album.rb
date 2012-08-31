@@ -3,5 +3,5 @@ class Album < ActiveRecord::Base
   belongs_to :artist
 
   validates :name, :presence => true,
-  								 :length => 2..30
+  								 :length => 2..50
 end
