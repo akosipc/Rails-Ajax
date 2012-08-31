@@ -10,10 +10,11 @@ class ArtistsController < ApplicationController
 		@artist = Artist.new
 
 		respond_to do |format|
-			format.html
+			format.html { flash[:notice] = "Showing all Artist" }
 			format.json
 			format.js
 		end
+
 	end
 
 	def new
@@ -35,7 +36,7 @@ class ArtistsController < ApplicationController
 
 	def show_by_name
 		@artist = Artist.find(:first, :conditions => ['lower(name) = ?', params[:name].gsub('_',' ').downcase])
-		flash[:alert] = "Hey"
+		flash[:notice] = "Artist found " + @artist.name
 	end
 
 	def edit
