@@ -5,5 +5,5 @@
     = render "artist", object: @artists
   .eight.columns#post_form
     = render "form"
-    
-    
+.row
+  = link_to "Add", new_artist_path, :class => "button", :remote => true
